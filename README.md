@@ -53,10 +53,7 @@ pacman -S raylib
 ```
 
 ##### Other distros
-You can directly download the latest version from [the official Raylib repo](https://github.com/raysan5/raylib/releases) (named raylib-<version>_linux_amd64.tar.gz). Untar the folder, cd to the extracted folder and move it manually to the /usr directory.
-```
-sudo cp -r ./* /usr/
-```
+You can directly download the latest version from [the official Raylib repo](https://github.com/raysan5/raylib/releases) (named raylib-<version>_linux_amd64.tar.gz). Untar the folder to a location `$RAYLIB_DIR`. We will use this folder in the build step to indicate to the compiler where to find our Raylib header and library.
 
 That should be it !
 
@@ -70,6 +67,8 @@ cd src/
 Use make to compile the game.
 ```
 make
+# Alternatively, if you do not want to use the Raylib package provided by your distribution
+make RAYLIB_INCLUDES=$RAYLIB_DIR/include RAYLIB_LIBS=$RAYLIB_DIR/lib
 ```
 Have fun !
 ```
